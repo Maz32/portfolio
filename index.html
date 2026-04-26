@@ -1101,6 +1101,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   window.addEventListener('resize', () => { resize(); });
   window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
   window.addEventListener('mouseleave', () => { mouse.x = -999; mouse.y = -999; });
+  window.addEventListener('touchmove', e => { mouse.x = e.touches[0].clientX; mouse.y = e.touches[0].clientY; }, { passive: true });
+  window.addEventListener('touchend', () => { mouse.x = -999; mouse.y = -999; });
 
   init();
   draw();
